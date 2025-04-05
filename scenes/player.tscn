@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgjabqthka8rx"]
+[gd_scene load_steps=14 format=3 uid="uid://dgjabqthka8rx"]
 
 [ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="2_75vfm"]
@@ -6,6 +6,46 @@
 [ext_resource type="PackedScene" uid="uid://blqdsk7hiee48" path="res://scenes/nodes/player_input.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://cj3safif0timg" path="res://scenes/nodes/player_movement.tscn" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://mq4cjsfqxsi5" path="res://scenes/nodes/player_animation.tscn" id="7_0owmy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+font_size = 17
+
+[sub_resource type="Animation" id="Animation_smehm"]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReplicaLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "typewriter"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReplicaLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
+_data = {
+&"RESET": SubResource("Animation_smehm"),
+&"typewriter": SubResource("Animation_fjrip")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
 animations = [{
@@ -31,6 +71,30 @@ script = ExtResource("1_dovo2")
 gravity_node = NodePath("Gravity")
 player_input_node = NodePath("PlayerInput")
 player_movement_node = NodePath("PlayerMovement")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ReplicaLabel" type="Label" parent="UI"]
+offset_left = 253.0
+offset_top = 438.0
+offset_right = 556.0
+offset_bottom = 531.0
+scale = Vector2(1.64, 1.64)
+size_flags_horizontal = 4
+text = "HELP AAWESCAWWEWACsaX
+NADO LUPIT
+YAYCA"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ReplicaAnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_ur7pv")
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0owmy")

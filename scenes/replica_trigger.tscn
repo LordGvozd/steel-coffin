@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0trdombdj6gm"]
+
+[ext_resource type="Script" uid="uid://bcf4uka4qrnb1" path="res://scripts/replica_trigger.gd" id="1_b5lmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5lmf"]
+
+[node name="ReplicaTrigger" type="Area2D"]
+script = ExtResource("1_b5lmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b5lmf")
+debug_color = Color(0, 0.639159, 0.368635, 0.42)
