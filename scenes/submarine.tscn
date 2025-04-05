@@ -1,24 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7xm4ofwwqnkr"]
+[gd_scene load_steps=4 format=3 uid="uid://b7xm4ofwwqnkr"]
 
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player/player.tscn" id="1_gua2t"]
+[ext_resource type="PackedScene" uid="uid://bl7aebfhuwfn2" path="res://scenes/ladder.tscn" id="2_r3h5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3h5y"]
-size = Vector2(367, 20)
+size = Vector2(101, 8)
 
 [node name="Submarine" type="Node2D"]
 
+[node name="Ladder" parent="." instance=ExtResource("2_r3h5y")]
+position = Vector2(607, 267)
+scale = Vector2(2.2, 5.76)
+
 [node name="Player" parent="." instance=ExtResource("1_gua2t")]
-position = Vector2(557, 277)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(0, -120)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(557, 328)
-shape = SubResource("RectangleShape2D_r3h5y")
+position = Vector2(558, 294)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(557, 328)
+position = Vector2(546, 233)
 shape = SubResource("RectangleShape2D_r3h5y")
+debug_color = Color(0.486848, 0.434485, 1, 0.42)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(123, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(544, 233)
+shape = SubResource("RectangleShape2D_r3h5y")
+debug_color = Color(0.486848, 0.434485, 1, 0.42)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(63, 89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(546, 233)
+shape = SubResource("RectangleShape2D_r3h5y")
+debug_color = Color(0.486848, 0.434485, 1, 0.42)
