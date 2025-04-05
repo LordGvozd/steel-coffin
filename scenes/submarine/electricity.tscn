@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlc07mxrfvwer"]
+
+[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_ge8ys"]
+[ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="2_yct0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yct0k"]
+size = Vector2(498, 20)
+
+[node name="Electricity" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ge8ys")]
+position = Vector2(0, -15)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(5, 24)
+shape = SubResource("RectangleShape2D_yct0k")
+
+[node name="Ladder" parent="Floor" instance=ExtResource("2_yct0k")]
+position = Vector2(-185, -16)
+scene_path = "uid://d3fjau7priu04"
