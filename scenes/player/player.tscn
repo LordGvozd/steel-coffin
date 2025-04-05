@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgjabqthka8rx"]
+
+[ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://blqdsk7hiee48" path="res://scenes/nodes/player_input.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://cj3safif0timg" path="res://scenes/nodes/player_movement.tscn" id="4_lvxji"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk62l"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_node", "player_input_node", "player_movement_node")]
+script = ExtResource("1_dovo2")
+gravity_node = NodePath("Gravity")
+player_input_node = NodePath("PlayerInput")
+player_movement_node = NodePath("PlayerMovement")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kk62l")
+
+[node name="Gravity" parent="." instance=ExtResource("2_gmlin")]
+gravity = 400.0
+
+[node name="PlayerInput" parent="." instance=ExtResource("3_gmlin")]
+
+[node name="PlayerMovement" parent="." instance=ExtResource("4_lvxji")]
+speed = 100.0
+jump_velocity = 120.0

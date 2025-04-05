@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://b7xm4ofwwqnkr"]
+[gd_scene load_steps=3 format=3 uid="uid://b7xm4ofwwqnkr"]
+
+[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player/player.tscn" id="1_gua2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3h5y"]
+size = Vector2(367, 20)
 
 [node name="Submarine" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gua2t")]
+position = Vector2(557, 277)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(0, -120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(557, 328)
+shape = SubResource("RectangleShape2D_r3h5y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(557, 328)
+shape = SubResource("RectangleShape2D_r3h5y")
