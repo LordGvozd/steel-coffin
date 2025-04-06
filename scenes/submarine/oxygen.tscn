@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://d3fjau7priu04"]
 
-[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_irhi1"]
+[ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_5a2mo"]
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="6_n3syt"]
 [ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="6_oc2ua"]
