@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="2_75vfm"]
-[ext_resource type="Script" uid="uid://dieqfwrbugipt" path="res://scripts/replica_label.gd" id="2_fjrip"]
 [ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
 [ext_resource type="FontFile" uid="uid://o0do1enh0mer" path="res://fonts/novem___.ttf" id="2_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://blqdsk7hiee48" path="res://scenes/nodes/player_input.tscn" id="3_gmlin"]
@@ -12,6 +11,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_smehm"]
 font = ExtResource("2_ur7pv")
+
+[sub_resource type="GDScript" id="GDScript_smehm"]
+script/source = "extends Label
+
+class_name ReplicaLabel
+"
 
 [sub_resource type="Animation" id="Animation_smehm"]
 length = 2.5
@@ -151,7 +156,7 @@ vertical_alignment = 1
 autowrap_mode = 1
 visible_characters = 0
 visible_ratio = 0.0
-script = ExtResource("2_fjrip")
+script = SubResource("GDScript_smehm")
 
 [node name="ReplicaAnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
