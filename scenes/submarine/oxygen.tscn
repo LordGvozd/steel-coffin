@@ -31,11 +31,14 @@ scale = Vector2(2.14425, -1.95067)
 [node name="Player" parent="." instance=ExtResource("1_irhi1")]
 position = Vector2(-53, 25)
 
-[node name="Camera2D" parent="Player" index="10"]
+[node name="Camera2D" parent="Player" index="11"]
 limit_left = -150
 limit_top = -95
 limit_right = 150
 limit_bottom = 95
+
+[node name="SoundEffectsAudioStreamPlayer" parent="Player" index="13"]
+autoplay = false
 
 [node name="SceneSwitchAnimation" parent="." instance=ExtResource("5_etsek")]
 position = Vector2(-161, -102)
@@ -50,7 +53,8 @@ position = Vector2(-2, 1)
 scale = Vector2(2.64, 2.64)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("6_6e4dj")]
-position = Vector2(-96, 26)
+position = Vector2(-92, 34)
+scale = Vector2(0.52, 1.04)
 scene = "uid://bi6bl38xwwng3"
 scene_switch_animation = NodePath("../SceneSwitchAnimation")
 
