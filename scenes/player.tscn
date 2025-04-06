@@ -1,0 +1,198 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgjabqthka8rx"]
+
+[ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="2_75vfm"]
+[ext_resource type="Script" uid="uid://dieqfwrbugipt" path="res://scripts/replica_label.gd" id="2_fjrip"]
+[ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://blqdsk7hiee48" path="res://scenes/nodes/player_input.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://cj3safif0timg" path="res://scenes/nodes/player_movement.tscn" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://mq4cjsfqxsi5" path="res://scenes/nodes/player_animation.tscn" id="7_0owmy"]
+[ext_resource type="PackedScene" uid="uid://cmewwmaibcla5" path="res://scenes/nodes/replica_system.tscn" id="8_smehm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+
+[sub_resource type="Animation" id="Animation_smehm"]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReplicaLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.48),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReplicaBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "typewriter"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReplicaLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReplicaLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReplicaBackground:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
+_data = {
+&"RESET": SubResource("Animation_smehm"),
+&"typewriter": SubResource("Animation_fjrip")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0owmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_75vfm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk62l"]
+radius = 7.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvxji"]
+radius = 6.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_node", "player_input_node", "player_movement_node")]
+script = ExtResource("1_dovo2")
+gravity_node = NodePath("Gravity")
+player_input_node = NodePath("PlayerInput")
+player_movement_node = NodePath("PlayerMovement")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ReplicaBackground" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -191.0
+offset_right = -220.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(14.44, 3.8)
+color = Color(0.152941, 0.152941, 0.152941, 0.85098)
+
+[node name="ReplicaLabel" type="Label" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -179.0
+offset_right = 15.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.12, 1.64)
+size_flags_horizontal = 4
+text = "HELP AAWESCAWWEWACsaX
+NADO LUPIT
+YAYCA"
+label_settings = SubResource("LabelSettings_smehm")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_fjrip")
+
+[node name="ReplicaAnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_ur7pv")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0owmy")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_kk62l")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_lvxji")
+debug_color = Color(0.995792, 0, 0.198893, 0.42)
+
+[node name="Gravity" parent="." instance=ExtResource("2_gmlin")]
+gravity = 300.0
+
+[node name="PlayerInput" parent="." instance=ExtResource("3_gmlin")]
+
+[node name="PlayerMovement" parent="." instance=ExtResource("4_lvxji")]
+speed = 100.0
+ladder_speed = 40.0
+jump_velocity = 120.0
+
+[node name="PlayerAreasManager" type="Node" parent="."]
+
+[node name="PlayerAnimation" parent="." instance=ExtResource("7_0owmy")]
+
+[node name="ReplicaSystem" parent="." node_paths=PackedStringArray("replica_label", "replica_animation_player") instance=ExtResource("8_smehm")]
+replica_label = NodePath("../UI/ReplicaLabel")
+replica_animation_player = NodePath("../UI/ReplicaAnimationPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.2, 2.2)
+
+[connection signal="animation_finished" from="UI/ReplicaAnimationPlayer" to="ReplicaSystem" method="_on_replica_animation_player_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_exited"]
