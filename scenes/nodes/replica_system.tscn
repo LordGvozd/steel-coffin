@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmewwmaibcla5"]
+
+[ext_resource type="Script" uid="uid://d2b3v1btf28t0" path="res://scripts/replica_system.gd" id="1_ssqo0"]
+
+[node name="ReplicaSystem" type="Node"]
+script = ExtResource("1_ssqo0")

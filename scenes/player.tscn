@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgjabqthka8rx"]
+[gd_scene load_steps=16 format=3 uid="uid://dgjabqthka8rx"]
 
 [ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="2_75vfm"]
+[ext_resource type="Script" uid="uid://dieqfwrbugipt" path="res://scripts/replica_label.gd" id="2_fjrip"]
 [ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://blqdsk7hiee48" path="res://scenes/nodes/player_input.tscn" id="3_gmlin"]
 [ext_resource type="PackedScene" uid="uid://cj3safif0timg" path="res://scenes/nodes/player_movement.tscn" id="4_lvxji"]
 [ext_resource type="PackedScene" uid="uid://mq4cjsfqxsi5" path="res://scenes/nodes/player_animation.tscn" id="7_0owmy"]
+[ext_resource type="PackedScene" uid="uid://cmewwmaibcla5" path="res://scenes/nodes/replica_system.tscn" id="8_smehm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_smehm"]
 font_size = 17
@@ -27,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fjrip"]
 resource_name = "typewriter"
-length = 2.5
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,6 +41,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReplicaLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
@@ -75,10 +89,17 @@ player_movement_node = NodePath("PlayerMovement")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ReplicaLabel" type="Label" parent="UI"]
-offset_left = 253.0
-offset_top = 438.0
-offset_right = 556.0
-offset_bottom = 531.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -179.0
+offset_right = 47.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1.64, 1.64)
 size_flags_horizontal = 4
 text = "HELP AAWESCAWWEWACsaX
@@ -90,6 +111,7 @@ vertical_alignment = 1
 autowrap_mode = 1
 visible_characters = 0
 visible_ratio = 0.0
+script = ExtResource("2_fjrip")
 
 [node name="ReplicaAnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
@@ -125,8 +147,13 @@ jump_velocity = 120.0
 
 [node name="PlayerAnimation" parent="." instance=ExtResource("7_0owmy")]
 
+[node name="ReplicaSystem" parent="." node_paths=PackedStringArray("replica_label", "replica_animation_player") instance=ExtResource("8_smehm")]
+replica_label = NodePath("../UI/ReplicaLabel")
+replica_animation_player = NodePath("../UI/ReplicaAnimationPlayer")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.2, 2.2)
 
+[connection signal="animation_finished" from="UI/ReplicaAnimationPlayer" to="ReplicaSystem" method="_on_replica_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_exited"]
