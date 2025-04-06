@@ -12,6 +12,10 @@ func apply_horizontal_movement(body: CharacterBody2D, input: float) -> void:
 	body.velocity.x = input * speed
 
 
+func reset_horizontal_movement(body: CharacterBody2D) -> void:
+	body.velocity.x = 0
+
+
 func apply_jump_movement(body: CharacterBody2D) -> void:
 	if body.is_on_floor():
 		body.velocity.y -= abs(jump_velocity)
