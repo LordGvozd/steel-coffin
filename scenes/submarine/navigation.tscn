@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_qfdty"]
 [ext_resource type="Texture2D" uid="uid://cdc134hit6bnx" path="res://sprites/navigation room.png" id="2_d3mr0"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="3_4cycs"]
-[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="3_d3mr0"]
+[ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="4_4cycs"]
 
 [node name="Navigation" type="Node2D"]
 
@@ -20,13 +20,4 @@ position = Vector2(5.91225, 4)
 scale = Vector2(4.84, 2.2)
 text = "This is a navigation device"
 
-[node name="Player" parent="." instance=ExtResource("3_d3mr0")]
-position = Vector2(33, 88)
-
-[node name="Camera2D" parent="Player" index="10"]
-limit_left = -54
-limit_top = -14
-limit_right = 243
-limit_bottom = 158
-
-[editable path="Player"]
+[node name="Player" parent="." instance=ExtResource("4_4cycs")]

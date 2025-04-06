@@ -15,6 +15,10 @@ run/main_scene="uid://d3fjau7priu04"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Indicators="*res://scripts/singletones/indicators.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -65,8 +69,3 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-
-[autoload]
-
-Indicators="*res://scripts/singletones/indicators.gd"
-
