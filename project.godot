@@ -13,3 +13,7 @@ config_version=5
 config/name="steel-coffin"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Indicators="*res://scripts/singletones/indicators.gd"
