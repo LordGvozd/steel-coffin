@@ -1,14 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3fjau7priu04"]
+[gd_scene load_steps=7 format=3 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="2_0jvyt"]
 [ext_resource type="Texture2D" uid="uid://d1c1y6ix2nuhl" path="res://sprites/navigation room.png" id="3_4hphf"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_5a2mo"]
+[ext_resource type="Texture2D" uid="uid://dl2jronw5wti8" path="res://sprites/character.png" id="6_oc2ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jvyt"]
 size = Vector2(507, 20)
 
 [node name="Oxygen" type="Node2D"]
+
+[node name="ReplicaTrigger" parent="." instance=ExtResource("4_5a2mo")]
+position = Vector2(-150, 2)
+text = "HELP LUPI YAYCA"
+
+[node name="Kiki" type="Sprite2D" parent="ReplicaTrigger"]
+use_parent_material = true
+position = Vector2(0, -9)
+texture = ExtResource("6_oc2ua")
 
 [node name="NavigationRoom" type="Sprite2D" parent="."]
 position = Vector2(52, -19)
@@ -20,17 +30,13 @@ position = Vector2(180, -6)
 scene_path = "uid://dlc07mxrfvwer"
 
 [node name="Player" parent="." instance=ExtResource("1_irhi1")]
-position = Vector2(0, -10)
+position = Vector2(0, -82)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(3, 25)
 shape = SubResource("RectangleShape2D_0jvyt")
-
-[node name="ReplicaTrigger" parent="." instance=ExtResource("4_5a2mo")]
-position = Vector2(-150, 2)
-text = "HELP LUPI YAYCA"
 
 [node name="ReplicaTrigger2" parent="." instance=ExtResource("4_5a2mo")]
 position = Vector2(-66, 1)

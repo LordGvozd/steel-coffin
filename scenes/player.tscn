@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cmewwmaibcla5" path="res://scenes/nodes/replica_system.tscn" id="8_smehm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_smehm"]
-font_size = 17
 
 [sub_resource type="Animation" id="Animation_smehm"]
 length = 2.5
@@ -25,6 +24,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReplicaBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_fjrip"]
@@ -49,6 +60,18 @@ tracks/1/path = NodePath("ReplicaLabel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ReplicaBackground:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -88,19 +111,35 @@ player_movement_node = NodePath("PlayerMovement")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="ReplicaBackground" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -191.0
+offset_right = -220.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(14.44, 3.8)
+color = Color(0.152941, 0.152941, 0.152941, 0.85098)
+
 [node name="ReplicaLabel" type="Label" parent="UI"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -206.0
+offset_left = -238.0
 offset_top = -179.0
-offset_right = 47.0
+offset_right = 15.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.64, 1.64)
+scale = Vector2(2.12, 1.64)
 size_flags_horizontal = 4
 text = "HELP AAWESCAWWEWACsaX
 NADO LUPIT
