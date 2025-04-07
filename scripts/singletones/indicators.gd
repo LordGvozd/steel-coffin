@@ -70,7 +70,6 @@ func execute_if_true(indicator: indicators, condition: String, event: Callable) 
 	
 	
 func update_indicator(indicator: indicators, param: String, value) -> void:
-	print("__" + __str_indicator(indicator) + "." + param)
 	get("__" + __str_indicator(indicator)).set(param, value)
 	
 	
