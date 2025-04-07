@@ -13,8 +13,17 @@ enum indicators{oxygen, deep, energy}
 
 func __str_indicator(ind: indicators):
 	return str(indicators.find_key(ind))
+	
+func indicator_by_str(string: String):
+	var inds = {
+		"oxygen": indicators.oxygen,
+		"deep": indicators.deep,
+		"energy": indicators.energy,
+	}
+	
+	return inds[string]
 
-var storage = JsonStorage.new()
+static var storage = JsonStorage.new()
 
 func _ready() -> void:
 	
@@ -26,10 +35,13 @@ func _ready() -> void:
 	
 	if not __oxygen: 
 		__oxygen = Oxygen.new("oxygen")
+		storage.save_data(__oxygen)
 	if not __deep: 
 		__deep = Deep.new("deep")
+		storage.save_data(__deep)
 	if not __energy: 
 		__energy = Energy.new("energy")
+		storage.save_data(__energy)
 		
 func _condition_to_expr(indicator: indicators, condition: String) -> Expression:
 	if condition.begins_with("?"):
@@ -80,4 +92,9 @@ func update_indicator(indicator: indicators, param: String, value) -> void:
 	for event in  __events[__str_indicator(indicator)]:
 		if event["condition_expr"].execute([], self):
 			event["callable"].call()
+
+
+func get_indicator(indicator: indicators):
+	var indicator_object = storage.load_data(__str_indicator(indicator))
+	return indicator_object
 	

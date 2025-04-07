@@ -1,10 +1,13 @@
+
 [gd_scene load_steps=6 format=4 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_irhi1"]
+
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="5_etsek"]
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="6_n3syt"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_6e4dj"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="7_n3syt"]
+[ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="9_mrbtk"]
 
 [node name="Oxygen" type="Node2D"]
 
@@ -32,5 +35,24 @@ limit_bottom = 110
 
 [node name="SceneSwitchAnimation" parent="." instance=ExtResource("5_etsek")]
 position = Vector2(-161, -102)
+
+
+[node name="Ladder" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("7_n3syt")]
+position = Vector2(-20, 25)
+scene_path = "uid://dlc07mxrfvwer"
+scene_switch_animation = NodePath("../SceneSwitchAnimation")
+
+[node name="InteractEffect" parent="Ladder" instance=ExtResource("7_6e4dj")]
+position = Vector2(-2, 1)
+scale = Vector2(2.64, 2.64)
+
+[node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("6_6e4dj")]
+position = Vector2(-96, 26)
+scene = "uid://bi6bl38xwwng3"
+scene_switch_animation = NodePath("../SceneSwitchAnimation")
+
+[node name="IndicatorsDisplay" parent="." instance=ExtResource("9_mrbtk")]
+position = Vector2(21, 39)
+
 
 [editable path="Player"]
