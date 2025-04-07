@@ -1,5 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d3fjau7priu04"]
-
+[gd_scene load_steps=12 format=4 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="3_mrbtk"]
@@ -10,11 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_6e4dj"]
 [ext_resource type="Texture2D" uid="uid://dvlthe1cxfajw" path="res://sprites/4433d48964593f4c0326f095d731e65a.jpg" id="7_mrbtk"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="7_n3syt"]
-
 [ext_resource type="Texture2D" uid="uid://dgp2ukbrba3b1" path="res://sprites/plakat.png" id="8_6e4dj"]
-
-[ext_resource type="PackedScene" uid="uid://dyp8aciqrpcpc" path="res://scenes/nodes/indicators_increase.tscn" id="8_6e4dh"]
-
+[ext_resource type="PackedScene" uid="uid://dyp8aciqrpcpc" path="res://scenes/nodes/indicators_increase.tscn" id="8_e6rnw"]
 
 [node name="Oxygen" type="Node2D"]
 
@@ -51,6 +47,15 @@ scale = Vector2(2.64, 2.64)
 position = Vector2(103, 8)
 texture = ExtResource("6_oc2ua")
 
+[node name="IndicatorsIncrease" parent="OxygenRoom" instance=ExtResource("8_e6rnw")]
+position = Vector2(-43, 37)
+scale = Vector2(1.53881, 1.21881)
+increase_to = 10
+
+[node name="InteractEffect" parent="OxygenRoom" instance=ExtResource("7_6e4dj")]
+position = Vector2(-41, 26)
+scale = Vector2(1.21881, 1.21881)
+
 [node name="Player" parent="." instance=ExtResource("1_irhi1")]
 position = Vector2(-122, 22)
 
@@ -72,8 +77,5 @@ scale = Vector2(1.01443, 0.258513)
 color = Color(1, 0.61473, 0.283837, 1)
 energy = 2.47
 texture = ExtResource("7_mrbtk")
-
-[node name="IndicatorsIncrease" parent="." instance=ExtResource("8_6e4dj")]
-position = Vector2(-60, 39)
 
 [editable path="Player"]

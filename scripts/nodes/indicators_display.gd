@@ -10,6 +10,9 @@ var control: Control
 
 
 func _ready() -> void:
+	Indicators.update_indicator(Indicators.indicators.oxygen, "display_name", Oxygen.new("oxygen").display_name)
+	Indicators.update_indicator(Indicators.indicators.deep, "display_name", Deep.new("deep").display_name)
+	Indicators.update_indicator(Indicators.indicators.energy, "display_name", Energy.new("energy").display_name)
 	control.visible = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

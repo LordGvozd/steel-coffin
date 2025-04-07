@@ -1,5 +1,5 @@
 extends Data
 class_name Deep
 
-var value = 2000
-var display_name = "Meters under water"
+var value: int = 100
+var display_name = "Fuel"

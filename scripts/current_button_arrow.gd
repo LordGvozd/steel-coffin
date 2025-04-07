@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 	
 	self.position = positions[current_index].position
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("interact"):
 		match current_index:
 			0:
-				get_tree().change_scene_to_file("res://scenes/submarine/corridor.tscn")
+				get_tree().change_scene_to_file("res://scenes/epigraf.tscn")
 			2:
 				get_tree().quit()
 		

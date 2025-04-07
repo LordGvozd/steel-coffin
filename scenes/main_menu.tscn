@@ -131,22 +131,12 @@ scale = Vector2(1.5, 1.5)
 text = "START"
 label_settings = SubResource("LabelSettings_bqqt6")
 
-[node name="Settings" type="Label" parent="."]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 427.0
-offset_right = 323.0
-offset_bottom = 476.0
-scale = Vector2(1.5, 1.5)
-text = "SETTINGS"
-label_settings = SubResource("LabelSettings_bqqt6")
-
 [node name="Exit" type="Label" parent="."]
 layout_mode = 0
 offset_left = 138.0
-offset_top = 512.0
+offset_top = 424.0
 offset_right = 224.0
-offset_bottom = 561.0
+offset_bottom = 473.0
 scale = Vector2(1.5, 1.5)
 text = "EXIT"
 label_settings = SubResource("LabelSettings_bqqt6")
@@ -156,17 +146,14 @@ position = Vector2(78, 386)
 scale = Vector2(1.67004, 1.67004)
 texture = ExtResource("2_wu84c")
 script = ExtResource("4_wu84c")
-positions = [NodePath("../ArrowPosition"), NodePath("../ArrowPosition2"), NodePath("../ArrowPosition3")]
+positions = [NodePath("../ArrowPosition"), NodePath("../ArrowPosition3")]
 audio_player = NodePath("../AudioStreamPlayer")
 
 [node name="ArrowPosition" type="Node2D" parent="."]
 position = Vector2(102, 383)
 
-[node name="ArrowPosition2" type="Node2D" parent="."]
-position = Vector2(102, 463)
-
 [node name="ArrowPosition3" type="Node2D" parent="."]
-position = Vector2(102, 551)
+position = Vector2(102, 463)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_8ln24")
@@ -193,6 +180,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_oa1go")
 }
 autoplay = "idle"
+
+[node name="help" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.623529)
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 539.0
+offset_right = 1427.0
+offset_bottom = 736.0
+scale = Vector2(0.84, 0.84)
+text = "[w] & [s] - select
+--------------------------
+[a] & [d] - move
+[e] - interact"
+label_settings = SubResource("LabelSettings_rtw2f")
 
 [node name="by" type="Label" parent="."]
 layout_mode = 0

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyp8aciqrpcpc"]
+[gd_scene load_steps=5 format=3 uid="uid://dyp8aciqrpcpc"]
 
 [ext_resource type="Script" uid="uid://b0nyqhsijdb76" path="res://scripts/nodes/indicator_increasee.gd" id="1_bovle"]
-[ext_resource type="AudioStream" uid="uid://bkllmb634c8r" path="res://audio/sounds/click.mp3" id="2_0ckri"]
-[ext_resource type="Texture2D" uid="uid://do0ovp2bt1twx" path="res://sprites/arrow.png" id="2_lrkcs"]
+[ext_resource type="AudioStream" uid="uid://btwnrxwew6ax" path="res://sounds/264446__kickhat__open-button-1.wav" id="2_lrkcs"]
 [ext_resource type="Script" uid="uid://c786seoau1nn8" path="res://scripts/interact_effect.gd" id="3_lrkcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bovle"]
@@ -10,12 +9,11 @@ size = Vector2(2.34006, 18)
 
 [node name="IndicatorsIncrease" type="Node2D"]
 script = ExtResource("1_bovle")
-basic_sound = ExtResource("2_0ckri")
+basic_sound = ExtResource("2_lrkcs")
 
 [node name="NavigationRoom" type="Sprite2D" parent="."]
 position = Vector2(-1, -9)
 scale = Vector2(0.677734, 0.5625)
-texture = ExtResource("2_lrkcs")
 
 [node name="Area2D" type="Area2D" parent="NavigationRoom"]
 position = Vector2(7.72414, 14.2222)
@@ -24,7 +22,6 @@ script = ExtResource("3_lrkcs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRoom/Area2D"]
 position = Vector2(-0.540706, -8)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bovle")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
