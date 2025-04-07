@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d3fjau7priu04"]
+[gd_scene load_steps=12 format=4 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_5a2mo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="7_n3syt"]
 [ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="9_mrbtk"]
 [ext_resource type="PackedScene" uid="uid://d1u80und57c06" path="res://scenes/nodes/indicators_updater.tscn" id="10_xd3wy"]
+[ext_resource type="PackedScene" uid="uid://dfyitaurrdtba" path="res://scenes/nodes/horror/suddenly_voice.tscn" id="11_e6rnw"]
 
 [node name="Oxygen" type="Node2D"]
 
@@ -60,5 +61,7 @@ scene_switch_animation = NodePath("../SceneSwitchAnimation")
 position = Vector2(-67, 46)
 
 [node name="IndicatorsUpdater" parent="." instance=ExtResource("10_xd3wy")]
+
+[node name="SuddenlyVoice" parent="." instance=ExtResource("11_e6rnw")]
 
 [editable path="Player"]
