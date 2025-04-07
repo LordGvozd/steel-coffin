@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://ccpt36vjhvwq5"]
+[gd_scene load_steps=12 format=4 uid="uid://ccpt36vjhvwq5"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_4cdqq"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="2_1g27h"]
 [ext_resource type="Texture2D" uid="uid://cflbuqcoapcw6" path="res://sprites/koridor.png" id="2_omayw"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="3_7nbnu"]
+[ext_resource type="Texture2D" uid="uid://bb1b68uomt2is" path="res://sprites/boxs.png" id="3_jcbhd"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_7nbnu"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_7rn3r"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="5_3m3i6"]
-[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="5_h30qd"]
+[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="5_h30qd"]
 [ext_resource type="PackedScene" uid="uid://qtar2igp0fnm" path="res://scenes/submarine/hatch.tscn" id="9_8r5wv"]
+[ext_resource type="Texture2D" uid="uid://dvlthe1cxfajw" path="res://sprites/4433d48964593f4c0326f095d731e65a.jpg" id="10_k8k11"]
 
 [node name="Corridor" type="Node2D"]
 
@@ -19,6 +21,20 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAYAAAABAAAAAAADAAYAAAACAAAAAAADAAY
 [node name="Koridor" type="Sprite2D" parent="."]
 position = Vector2(255, 110)
 texture = ExtResource("2_omayw")
+
+[node name="Boxs" type="Sprite2D" parent="."]
+position = Vector2(161, 119)
+texture = ExtResource("3_jcbhd")
+
+[node name="ReplicaTrigger" parent="Boxs" instance=ExtResource("4_7rn3r")]
+position = Vector2(-5, 4)
+scale = Vector2(1.1366, 1.1366)
+text = "Boxes of food and water. Not much left"
+audio = "uid://cnjlo34r30e36"
+
+[node name="InteractEffect" parent="Boxs" instance=ExtResource("3_7nbnu")]
+position = Vector2(-5, 4)
+scale = Vector2(1.16, 1.16)
 
 [node name="Corpse" type="Sprite2D" parent="."]
 position = Vector2(238, 127)
@@ -38,7 +54,7 @@ scale = Vector2(1.4, 1.4)
 
 [node name="Ladder" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("2_1g27h")]
 position = Vector2(93, 119)
-scene_path = "uid://bf14pp7hgv17q"
+scene_path = "uid://ctjt3rdrm6gu3"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation2")
 
 [node name="InteractEffect" parent="Ladder" instance=ExtResource("3_7nbnu")]
@@ -47,10 +63,12 @@ scale = Vector2(1.12, 2.64)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("5_h30qd")]
 position = Vector2(53, 120)
+scene = "uid://c8qdmwpkopnid"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation3")
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("5_h30qd")]
 position = Vector2(396, 119)
+scene = "uid://dlc07mxrfvwer"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation")
 
 [node name="Hatch" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("9_8r5wv")]
@@ -59,7 +77,7 @@ scene_path = "uid://d3fjau7priu04"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation4")
 
 [node name="Player" parent="." instance=ExtResource("5_3m3i6")]
-position = Vector2(90, 119)
+position = Vector2(170, 119)
 
 [node name="Camera2D" parent="Player" index="11"]
 limit_left = 5
@@ -77,5 +95,29 @@ limit_bottom = 204
 position = Vector2(1, 1)
 
 [node name="SceneSwitchAnimation2" parent="Transitions" instance=ExtResource("4_7nbnu")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(207, 126)
+scale = Vector2(0.200001, 0.159999)
+color = Color(1, 0.61473, 0.283837, 1)
+energy = 4.5
+texture = ExtResource("10_k8k11")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(271, 126)
+scale = Vector2(0.200001, 0.159999)
+color = Color(1, 0.61473, 0.283837, 1)
+energy = 4.5
+texture = ExtResource("10_k8k11")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(335, 126)
+scale = Vector2(0.200001, 0.159999)
+color = Color(1, 0.61473, 0.283837, 1)
+energy = 4.5
+texture = ExtResource("10_k8k11")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [editable path="Player"]

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Indicators="*res://scripts/singletones/indicators.gd"
+AmbienceAudioPlayer="*res://scenes/submarine/ambience_audio_player.tscn"
 
 [display]
 

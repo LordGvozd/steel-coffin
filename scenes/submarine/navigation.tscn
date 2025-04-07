@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://bi6bl38xwwng3"]
+[gd_scene load_steps=10 format=4 uid="uid://bi6bl38xwwng3"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_qfdty"]
 [ext_resource type="Texture2D" uid="uid://cdc134hit6bnx" path="res://sprites/navigation room.png" id="2_d3mr0"]
-[ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="3_4cycs"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="4_4cycs"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="5_5fw64"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_8ncw2"]
-[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="7_hqmce"]
+[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="7_hqmce"]
 [ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="8_hqmce"]
+[ext_resource type="Texture2D" uid="uid://dvlthe1cxfajw" path="res://sprites/4433d48964593f4c0326f095d731e65a.jpg" id="8_ye7fv"]
+[ext_resource type="Texture2D" uid="uid://bgbtkccl5qr7u" path="res://sprites/lantern.png" id="9_ye7fv"]
 
 [node name="Navigation" type="Node2D"]
 
@@ -19,15 +20,8 @@ position = Vector2(89, 81)
 scale = Vector2(0.971581, 0.971581)
 texture = ExtResource("2_d3mr0")
 
-[node name="ReplicaTrigger" parent="Navigation" instance=ExtResource("3_4cycs")]
-position = Vector2(5.91225, 4)
-scale = Vector2(4.84, 2.2)
-text = "This is a navigation device"
-audio = "uid://ccvjiwhk8pwkk"
-
 [node name="InteractEffect" parent="Navigation" instance=ExtResource("7_8ncw2")]
-position = Vector2(6.17551, 4.117)
-scale = Vector2(4.9404, 2.18201)
+position = Vector2(14.4095, 8.234)
 
 [node name="Player" parent="." instance=ExtResource("4_4cycs")]
 position = Vector2(26, 88)
@@ -43,10 +37,24 @@ position = Vector2(-95, -48)
 
 [node name="SceneSwitcher" parent="Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("7_hqmce")]
 position = Vector2(-2, 92)
-scene = "uid://bf14pp7hgv17q"
+scene = "uid://ctjt3rdrm6gu3"
 scene_switch_animation = NodePath("../SceneSwitchAnimation")
 
 [node name="IndicatorsDisplay" parent="." instance=ExtResource("8_hqmce")]
-position = Vector2(174, 100)
+position = Vector2(99, 99)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(103, 90)
+scale = Vector2(0.679999, 0.2)
+color = Color(1, 0.61473, 0.283837, 1)
+energy = 5.03
+texture = ExtResource("8_ye7fv")
+
+[node name="Lantern" type="Sprite2D" parent="."]
+position = Vector2(103, 47)
+texture = ExtResource("9_ye7fv")
 
 [editable path="Player"]

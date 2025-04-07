@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bf14pp7hgv17q"]
+[gd_scene load_steps=6 format=4 uid="uid://ctjt3rdrm6gu3"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_fufk3"]
 [ext_resource type="PackedScene" uid="uid://qtar2igp0fnm" path="res://scenes/submarine/hatch.tscn" id="2_1eqjo"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="2_mxjb0"]
-[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="4_1eqjo"]
+[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="4_1eqjo"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_qnmjv"]
 
 [node name="Buffer" type="Node2D"]
@@ -37,5 +37,8 @@ scene_switch_animation = NodePath("../SceneSwitchAnimation")
 position = Vector2(15, 12)
 
 [node name="SceneSwitchAnimation2" parent="Transitions/Transitions" instance=ExtResource("4_qnmjv")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
 
 [editable path="Transitions/Player"]

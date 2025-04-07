@@ -1,13 +1,104 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ky0h8fix6di"]
+[gd_scene load_steps=18 format=3 uid="uid://d2ky0h8fix6di"]
 
-[ext_resource type="FontFile" uid="uid://o0do1enh0mer" path="res://fonts/novem___.ttf" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://crhkn5cyd1cdr" path="res://sprites/ry6r (3).png" id="1_8ln24"]
+[ext_resource type="FontFile" uid="uid://bo65xdf87xgng" path="res://fonts/Quadaptor.otf" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://do0ovp2bt1twx" path="res://sprites/arrow.png" id="2_wu84c"]
-[ext_resource type="Script" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
+[ext_resource type="AudioStream" uid="uid://b3kebr3scmlxe" path="res://sounds/140773__qubodup__computer-beep-sfx-for-videogames.wav" id="4_8ln24"]
+[ext_resource type="Script" uid="uid://hhm72tg1w2xh" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
+[ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="7_oa1go"]
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
-font = ExtResource("2_bqqt6")
+font = ExtResource("2_rtw2f")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ln24"]
+font = ExtResource("2_rtw2f")
+font_size = 100
+font_color = Color(0.141176, 0.34902, 0.443137, 0.647059)
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(717, 446)]
+}
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+resource_name = "background_idle"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.16667, 9.9, 14.8851),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(643, 403), Vector2(717, 446), Vector2(568, 450), Vector2(643, 403)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmy8"]
+_data = {
+&"RESET": SubResource("Animation_tbmy8"),
+&"background_idle": SubResource("Animation_oa1go")
+}
+
+[sub_resource type="Animation" id="Animation_rtw2f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ttile:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.141176, 0.34902, 0.443137, 0.647059)]
+}
+
+[sub_resource type="Animation" id="Animation_8ln24"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ttile:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.490784, 0.0974918, 0.046176, 1), Color(0.25098, 0.0313726, 0.0117647, 0.670588), Color(0.490196, 0.0980392, 0.0470588, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oa1go"]
+_data = {
+&"RESET": SubResource("Animation_rtw2f"),
+&"idle": SubResource("Animation_8ln24")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtw2f"]
+font = ExtResource("2_rtw2f")
+font_size = 30
+font_color = Color(0.470076, 0.470076, 0.470076, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,48 +109,100 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_bqqt6")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(717, 446)
+scale = Vector2(2.89329, 2.89329)
+texture = ExtResource("1_8ln24")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Background"]
+position = Vector2(38.3646, -78.4574)
+scale = Vector2(0.704325, 0.380965)
+color = Color(0.952941, 0, 0, 0.694118)
+energy = 6.74
+texture = ExtResource("6_rtw2f")
+
 [node name="Start" type="Label" parent="."]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 288.0
-offset_right = 223.0
-offset_bottom = 311.0
-scale = Vector2(5.28, 5.28)
+offset_left = 135.0
+offset_top = 344.0
+offset_right = 256.0
+offset_bottom = 393.0
+scale = Vector2(1.5, 1.5)
 text = "START"
 label_settings = SubResource("LabelSettings_bqqt6")
 
 [node name="Settings" type="Label" parent="."]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 411.0
-offset_right = 239.0
-offset_bottom = 434.0
-scale = Vector2(5.28, 5.28)
+offset_left = 135.0
+offset_top = 427.0
+offset_right = 323.0
+offset_bottom = 476.0
+scale = Vector2(1.5, 1.5)
 text = "SETTINGS"
 label_settings = SubResource("LabelSettings_bqqt6")
 
 [node name="Exit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 528.0
-offset_right = 226.0
-offset_bottom = 551.0
-scale = Vector2(5.28, 5.28)
+offset_left = 138.0
+offset_top = 512.0
+offset_right = 224.0
+offset_bottom = 561.0
+scale = Vector2(1.5, 1.5)
 text = "EXIT"
 label_settings = SubResource("LabelSettings_bqqt6")
 
-[node name="CurrentButtonArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("positions")]
-position = Vector2(114, 322)
-scale = Vector2(2.72001, 2.72001)
+[node name="CurrentButtonArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("positions", "audio_player")]
+position = Vector2(78, 386)
+scale = Vector2(1.67004, 1.67004)
 texture = ExtResource("2_wu84c")
 script = ExtResource("4_wu84c")
 positions = [NodePath("../ArrowPosition"), NodePath("../ArrowPosition2"), NodePath("../ArrowPosition3")]
+audio_player = NodePath("../AudioStreamPlayer")
 
 [node name="ArrowPosition" type="Node2D" parent="."]
-position = Vector2(118, 322)
+position = Vector2(102, 383)
 
 [node name="ArrowPosition2" type="Node2D" parent="."]
-position = Vector2(118, 442)
+position = Vector2(102, 463)
 
 [node name="ArrowPosition3" type="Node2D" parent="."]
-position = Vector2(118, 570)
+position = Vector2(102, 551)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8ln24")
+
+[node name="Ttile" type="Label" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 48.0
+offset_right = 859.0
+offset_bottom = 179.0
+scale = Vector2(1.16, 1.16)
+text = "K1937"
+label_settings = SubResource("LabelSettings_8ln24")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Background")
+libraries = {
+&"": SubResource("AnimationLibrary_tbmy8")
+}
+autoplay = "background_idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_oa1go")
+}
+autoplay = "idle"
+
+[node name="by" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 190.0
+offset_right = 464.0
+offset_bottom = 227.0
+scale = Vector2(0.84, 0.84)
+text = "a game by LogovoStudios"
+label_settings = SubResource("LabelSettings_rtw2f")
+
+[node name="SceneSwitchAnimation" parent="." instance=ExtResource("7_oa1go")]
+position = Vector2(-20, -36)
