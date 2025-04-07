@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://i4pngtkklkqy"]
+
+[ext_resource type="AudioStream" uid="uid://ll4gjntm2s4q" path="res://sounds/130506__duckduckpony__large-vessel.wav" id="1_numlr"]
+
+[node name="AmbienceAudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_numlr")
+volume_db = -20.0
+autoplay = true

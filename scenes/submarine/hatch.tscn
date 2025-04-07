@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://qtar2igp0fnm"]
+
+[ext_resource type="Script" uid="uid://ct2aoxc1wqbmn" path="res://scripts/enviroment/ladder.gd" id="1_pctxs"]
+[ext_resource type="Texture2D" uid="uid://cmt8jt3swprfw" path="res://sprites/hatch.png" id="2_1csho"]
+[ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="3_qgnqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ugx"]
+size = Vector2(20, 9.43397)
+
+[node name="Hatch" type="Area2D"]
+script = ExtResource("1_pctxs")
+scene_path = "uid://ccpt36vjhvwq5"
+
+[node name="Hatch" type="Sprite2D" parent="."]
+position = Vector2(70, 96)
+texture = ExtResource("2_1csho")
+
+[node name="InteractEffect" parent="Hatch" instance=ExtResource("3_qgnqq")]
+position = Vector2(20, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(90, 118)
+scale = Vector2(1, 2.12)
+shape = SubResource("RectangleShape2D_g3ugx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
