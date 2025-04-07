@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://o0do1enh0mer" path="res://fonts/novem___.ttf" id="2_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://do0ovp2bt1twx" path="res://sprites/arrow.png" id="2_wu84c"]
-[ext_resource type="Script" uid="uid://hhm72tg1w2xh" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
+[ext_resource type="Script" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
 

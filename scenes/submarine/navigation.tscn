@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_qfdty"]
 [ext_resource type="Texture2D" uid="uid://cdc134hit6bnx" path="res://sprites/navigation room.png" id="2_d3mr0"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="3_4cycs"]
-[ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="4_4cycs"]
+[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="4_4cycs"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="5_5fw64"]
-[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="6_5ecxn"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_8ncw2"]
+[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="7_hqmce"]
 [ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="8_hqmce"]
 
 [node name="Navigation" type="Node2D"]
@@ -38,17 +38,15 @@ limit_right = 230
 
 [node name="Transitions" type="Node" parent="."]
 
-[node name="SceneSwitcher" parent="Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("6_5ecxn")]
-position = Vector2(-13, 88)
-scene = "uid://ctjt3rdrm6gu3"
-scene_switch_animation = NodePath("../SceneSwitchAnimation")
-
-
 [node name="SceneSwitchAnimation" parent="Transitions" instance=ExtResource("5_5fw64")]
 position = Vector2(-95, -48)
 
+[node name="SceneSwitcher" parent="Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("7_hqmce")]
+position = Vector2(-2, 92)
+scene = "uid://bf14pp7hgv17q"
+scene_switch_animation = NodePath("../SceneSwitchAnimation")
+
 [node name="IndicatorsDisplay" parent="." instance=ExtResource("8_hqmce")]
 position = Vector2(174, 100)
-
 
 [editable path="Player"]

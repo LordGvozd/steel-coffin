@@ -70,21 +70,11 @@ func execute_if_true(indicator: indicators, condition: String, event: Callable) 
 	
 	
 func update_indicator(indicator: indicators, param: String, value) -> void:
-	var expression_string = (
-		"__"
-		+ __str_indicator(indicator)
-		+ "."
-		+ param
-		+ " = "
-		+ str(value)
-	)
+	print("__" + __str_indicator(indicator) + "." + param)
+	get("__" + __str_indicator(indicator)).set(param, value)
 	
-	var expr = Expression.new()
 	
-	expr.parse(expression_string)
-	expr.execute()
-	
-	storage.save_data(__oxygen)
+	storage.save_data(get("__" + __str_indicator(indicator)))
 	
 	if __str_indicator(indicator) not in __events.keys():
 		__events[__str_indicator(indicator)] = []
@@ -94,7 +84,7 @@ func update_indicator(indicator: indicators, param: String, value) -> void:
 			event["callable"].call()
 
 
-func get_indicator(indicator: indicators):
+func get_indicator(indicator: indicators) -> Data:
 	var indicator_object = storage.load_data(__str_indicator(indicator))
 	return indicator_object
 	

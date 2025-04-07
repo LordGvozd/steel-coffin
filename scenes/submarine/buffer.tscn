@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctjt3rdrm6gu3"]
+[gd_scene load_steps=6 format=4 uid="uid://bf14pp7hgv17q"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_fufk3"]
 [ext_resource type="PackedScene" uid="uid://qtar2igp0fnm" path="res://scenes/submarine/hatch.tscn" id="2_1eqjo"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="2_mxjb0"]
-[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="3_epwla"]
+[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="4_1eqjo"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_qnmjv"]
 
 [node name="Buffer" type="Node2D"]
@@ -17,11 +17,6 @@ tile_map_data = PackedByteArray("AAD+/wcAAAACAAcAAAD9/wcAAAACAAcAAAD+/wYAAAACAAc
 [node name="Hatch" parent="Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("2_1eqjo")]
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation2")
 
-[node name="SceneSwitcher" parent="Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("3_epwla")]
-position = Vector2(158, 105)
-scene = "uid://bi6bl38xwwng3"
-scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation")
-
 [node name="Player" parent="Transitions" instance=ExtResource("2_mxjb0")]
 position = Vector2(114, 102)
 
@@ -32,6 +27,11 @@ limit_right = 240
 limit_bottom = 195
 
 [node name="Transitions" type="Node" parent="Transitions"]
+
+[node name="SceneSwitcher" parent="Transitions/Transitions" node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("4_1eqjo")]
+position = Vector2(151, 118)
+scene = "uid://bi6bl38xwwng3"
+scene_switch_animation = NodePath("../SceneSwitchAnimation")
 
 [node name="SceneSwitchAnimation" parent="Transitions/Transitions" instance=ExtResource("4_qnmjv")]
 position = Vector2(15, 12)
