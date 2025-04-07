@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bi6bl38xwwng3"]
+[gd_scene load_steps=9 format=4 uid="uid://bi6bl38xwwng3"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_qfdty"]
 [ext_resource type="Texture2D" uid="uid://cdc134hit6bnx" path="res://sprites/navigation room.png" id="2_d3mr0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_8ncw2"]
 [ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="7_hqmce"]
 [ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="8_hqmce"]
+[ext_resource type="Texture2D" uid="uid://dvlthe1cxfajw" path="res://sprites/4433d48964593f4c0326f095d731e65a.jpg" id="8_ye7fv"]
 
 [node name="Navigation" type="Node2D"]
 
@@ -40,5 +41,15 @@ scene_switch_animation = NodePath("../SceneSwitchAnimation")
 
 [node name="IndicatorsDisplay" parent="." instance=ExtResource("8_hqmce")]
 position = Vector2(99, 99)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(103, 90)
+scale = Vector2(0.679999, 0.2)
+color = Color(1, 0.61473, 0.283837, 1)
+energy = 5.03
+texture = ExtResource("8_ye7fv")
 
 [editable path="Player"]

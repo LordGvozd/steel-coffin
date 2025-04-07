@@ -38,4 +38,7 @@ position = Vector2(15, 12)
 
 [node name="SceneSwitchAnimation2" parent="Transitions/Transitions" instance=ExtResource("4_qnmjv")]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
 [editable path="Transitions/Player"]

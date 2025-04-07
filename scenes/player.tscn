@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dgjabqthka8rx"]
+[gd_scene load_steps=43 format=4 uid="uid://dgjabqthka8rx"]
 
 [ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dkehdbn5cwevd" path="res://sprites/player/walk/character_walk11.png" id="21_t4otl"]
 [ext_resource type="Texture2D" uid="uid://ddmbwaemlq58e" path="res://sprites/player/walk/character_walk12.png" id="22_j2b1d"]
 [ext_resource type="PackedScene" uid="uid://cbavo4k480nfc" path="res://scenes/nodes/player_audio.tscn" id="28_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="31_wnwbv"]
 
 [sub_resource type="Animation" id="Animation_smehm"]
 length = 2.5
@@ -271,6 +272,7 @@ visible_ratio = 0.0
 script = SubResource("GDScript_smehm")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="UI"]
+visible = false
 offset_left = 943.0
 offset_top = 58.0
 offset_right = 1663.0
@@ -278,7 +280,6 @@ offset_bottom = 1338.0
 scale = Vector2(0.418425, 0.418425)
 stream = ExtResource("4_wqfne")
 volume_db = -20.0
-autoplay = true
 loop = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -334,6 +335,9 @@ volume_db = -15.0
 [node name="SoundEffectsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_dt7fs")
 pitch_scale = 1.07
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("31_wnwbv")
 
 [connection signal="animation_finished" from="UI/ReplicaAnimationPlayer" to="ReplicaSystem" method="_on_replica_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_entered"]

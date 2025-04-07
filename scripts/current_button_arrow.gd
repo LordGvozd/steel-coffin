@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		match current_index:
 			0:
-				get_tree().change_scene_to_file("res://scenes/submarine/oxygen.tscn")
+				get_tree().change_scene_to_file("res://scenes/submarine/corridor.tscn")
 			2:
 				get_tree().quit()
 		
