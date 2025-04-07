@@ -12,14 +12,13 @@ var is_animation_playing: bool = false
 
 func _ready() -> void:
 	animation_player = scene_switch_animation.get_node("AnimationPlayer")
+	animation_player.connect("animation_finished", _on_animation_finished)
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		animation_player.animation_finished.connect(_on_animation_finished)
 		animation_player.play("fade_in")
 		is_animation_playing = true
-
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_in":

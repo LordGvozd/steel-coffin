@@ -5,7 +5,7 @@ class_name ReplicaSystem
 
 @export var replica_label: Label
 @export var replica_animation_player: AnimationPlayer
-@export var audio_stream_player: AudioStreamPlayer2D
+@export var audio_stream_player: AudioStreamPlayer
 
 
 var is_replica_animation_playing: bool = false

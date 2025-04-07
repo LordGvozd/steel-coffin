@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2ky0h8fix6di"]
+
+[ext_resource type="FontFile" uid="uid://o0do1enh0mer" path="res://fonts/novem___.ttf" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://do0ovp2bt1twx" path="res://sprites/arrow.png" id="2_wu84c"]
+[ext_resource type="Script" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
+
+[sub_resource type="GDScript" id="GDScript_bqqt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
+font = ExtResource("2_bqqt6")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_bqqt6")
+
+[node name="Start" type="Label" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 288.0
+offset_right = 223.0
+offset_bottom = 311.0
+scale = Vector2(5.28, 5.28)
+text = "START"
+label_settings = SubResource("LabelSettings_bqqt6")
+
+[node name="Settings" type="Label" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 411.0
+offset_right = 239.0
+offset_bottom = 434.0
+scale = Vector2(5.28, 5.28)
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_bqqt6")
+
+[node name="Exit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 528.0
+offset_right = 226.0
+offset_bottom = 551.0
+scale = Vector2(5.28, 5.28)
+text = "EXIT"
+label_settings = SubResource("LabelSettings_bqqt6")
+
+[node name="CurrentButtonArrow" type="Sprite2D" parent="." node_paths=PackedStringArray("positions")]
+position = Vector2(114, 322)
+scale = Vector2(2.72001, 2.72001)
+texture = ExtResource("2_wu84c")
+script = ExtResource("4_wu84c")
+positions = [NodePath("../ArrowPosition"), NodePath("../ArrowPosition2"), NodePath("../ArrowPosition3")]
+
+[node name="ArrowPosition" type="Node2D" parent="."]
+position = Vector2(118, 322)
+
+[node name="ArrowPosition2" type="Node2D" parent="."]
+position = Vector2(118, 442)
+
+[node name="ArrowPosition3" type="Node2D" parent="."]
+position = Vector2(118, 570)
