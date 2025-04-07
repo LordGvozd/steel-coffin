@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://dlc07mxrfvwer"]
+[gd_scene load_steps=10 format=4 uid="uid://dlc07mxrfvwer"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_yct0k"]
 [ext_resource type="Texture2D" uid="uid://4f3csfvodfto" path="res://sprites/energy_room.png" id="2_rkkms"]
 [ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="3_ii4w3"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="3_sy3al"]
+[ext_resource type="Texture2D" uid="uid://dcmfor2e04amb" path="res://sprites/rod.png" id="4_enegb"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="5_crjef"]
+[ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="5_rajhn"]
 [ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="6_crjef"]
+[ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="6_u7nrb"]
 
 [node name="Electricity" type="Node2D"]
 
@@ -17,11 +20,25 @@ tile_map_data = PackedByteArray("AAAAAAcAAAACAAYAAAABAAcAAAACAAYAAAACAAcAAAACAAY
 [node name="EnergyRoom" type="Sprite2D" parent="."]
 position = Vector2(214, 67)
 texture = ExtResource("2_rkkms")
+region_enabled = true
+region_rect = Rect2(1.08302, 1.02795, 174.917, 110.972)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("3_ii4w3")]
 position = Vector2(53, 104)
 scene = "uid://ccpt36vjhvwq5"
 scene_switch_animation = NodePath("../SceneSwitchAnimation")
+
+[node name="Rod" type="Sprite2D" parent="."]
+position = Vector2(149, 40)
+texture = ExtResource("4_enegb")
+
+[node name="ReplicaTrigger" parent="Rod" instance=ExtResource("5_rajhn")]
+position = Vector2(0, 64)
+text = "Energy rods"
+audio = "uid://bbx1kdnimj7m3"
+
+[node name="InteractEffect" parent="Rod" instance=ExtResource("6_u7nrb")]
+position = Vector2(0, 64)
 
 [node name="Player" parent="." instance=ExtResource("3_sy3al")]
 position = Vector2(83, 104)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://ccpt36vjhvwq5"]
+[gd_scene load_steps=12 format=4 uid="uid://ccpt36vjhvwq5"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_4cdqq"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="2_1g27h"]
 [ext_resource type="Texture2D" uid="uid://cflbuqcoapcw6" path="res://sprites/koridor.png" id="2_omayw"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="3_7nbnu"]
+[ext_resource type="Texture2D" uid="uid://bb1b68uomt2is" path="res://sprites/boxs.png" id="3_jcbhd"]
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_7nbnu"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_7rn3r"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="5_3m3i6"]
@@ -20,6 +21,20 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAYAAAABAAAAAAADAAYAAAACAAAAAAADAAY
 [node name="Koridor" type="Sprite2D" parent="."]
 position = Vector2(255, 110)
 texture = ExtResource("2_omayw")
+
+[node name="Boxs" type="Sprite2D" parent="."]
+position = Vector2(161, 119)
+texture = ExtResource("3_jcbhd")
+
+[node name="ReplicaTrigger" parent="Boxs" instance=ExtResource("4_7rn3r")]
+position = Vector2(-5, 4)
+scale = Vector2(1.1366, 1.1366)
+text = "Boxes of food and water. Not much left"
+audio = "uid://cnjlo34r30e36"
+
+[node name="InteractEffect" parent="Boxs" instance=ExtResource("3_7nbnu")]
+position = Vector2(-5, 4)
+scale = Vector2(1.16, 1.16)
 
 [node name="Corpse" type="Sprite2D" parent="."]
 position = Vector2(238, 127)

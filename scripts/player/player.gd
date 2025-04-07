@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 			player_input_node.horizontal_input
 		)
 		
-		if player_input_node.is_jump_pressed:
-			player_movement_node.apply_jump_movement(self)
+		#if player_input_node.is_jump_pressed:
+			#player_movement_node.apply_jump_movement(self)
 	else:
 		player_movement_node.reset_horizontal_movement(self)
 		player_animation_node.play_idle()
