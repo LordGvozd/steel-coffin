@@ -9,7 +9,7 @@ size = Vector2(74.1053, 67.7647)
 
 [node name="IndicatorsDisplay" type="Node2D" node_paths=PackedStringArray("display_label", "control")]
 script = ExtResource("1_n1vsl")
-display_label = NodePath("Control/CenterContainer/DisplayLabel")
+display_label = NodePath("Control/DisplayLabel")
 control = NodePath("Control")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,30 +22,34 @@ script = ExtResource("2_dkpce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
 position = Vector2(3.36842, -7.62939e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mmjou")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -35.0
-offset_top = -52.0
-offset_right = 25.0
-offset_bottom = -4.0
+offset_left = -25.0
+offset_top = -98.0
+offset_right = -24.0
+offset_bottom = -97.0
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
 offset_right = 10.0
 offset_bottom = 10.0
 
+[node name="DisplayLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 48.0
+offset_bottom = 43.0
+scale = Vector2(0.410617, 0.338613)
+text = "asd"
+
 [node name="CenterContainer" type="CenterContainer" parent="Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="DisplayLabel" type="Label" parent="Control/CenterContainer"]
-layout_mode = 2
-text = "asd"
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_area_entered"]

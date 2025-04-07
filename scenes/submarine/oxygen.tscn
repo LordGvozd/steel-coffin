@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://d3fjau7priu04"]
+[gd_scene load_steps=11 format=4 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_5a2mo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="7_6e4dj"]
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="7_n3syt"]
 [ext_resource type="PackedScene" uid="uid://dnjdtwac2hg4o" path="res://scenes/nodes/indicators_display.tscn" id="9_mrbtk"]
+[ext_resource type="PackedScene" uid="uid://d1u80und57c06" path="res://scenes/nodes/indicators_updater.tscn" id="10_xd3wy"]
 
 [node name="Oxygen" type="Node2D"]
 
@@ -56,6 +57,8 @@ scene = "uid://bi6bl38xwwng3"
 scene_switch_animation = NodePath("../SceneSwitchAnimation")
 
 [node name="IndicatorsDisplay" parent="." instance=ExtResource("9_mrbtk")]
-position = Vector2(21, 39)
+position = Vector2(-67, 46)
+
+[node name="IndicatorsUpdater" parent="." instance=ExtResource("10_xd3wy")]
 
 [editable path="Player"]
