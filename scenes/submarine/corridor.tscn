@@ -63,9 +63,6 @@ scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation4")
 [node name="Player" parent="." instance=ExtResource("5_3m3i6")]
 position = Vector2(90, 119)
 
-[node name="VideoStreamPlayer" parent="Player/UI" index="3"]
-scale = Vector2(0.418425, 0.418425)
-
 [node name="Camera2D" parent="Player" index="11"]
 limit_left = 5
 limit_top = 0

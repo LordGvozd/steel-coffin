@@ -29,9 +29,6 @@ texture = ExtResource("6_oc2ua")
 [node name="Player" parent="." instance=ExtResource("1_irhi1")]
 position = Vector2(-122, 22)
 
-[node name="VideoStreamPlayer" parent="Player/UI" index="3"]
-scale = Vector2(0.418425, 0.418425)
-
 [node name="Camera2D" parent="Player" index="11"]
 limit_left = -215
 limit_top = -95
