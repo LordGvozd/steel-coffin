@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2ky0h8fix6di"]
+[gd_scene load_steps=18 format=3 uid="uid://d2ky0h8fix6di"]
 
 [ext_resource type="Texture2D" uid="uid://crhkn5cyd1cdr" path="res://sprites/ry6r (3).png" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://bo65xdf87xgng" path="res://fonts/Quadaptor.otf" id="2_rtw2f"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b3kebr3scmlxe" path="res://sounds/140773__qubodup__computer-beep-sfx-for-videogames.wav" id="4_8ln24"]
 [ext_resource type="Script" uid="uid://hhm72tg1w2xh" path="res://scripts/current_button_arrow.gd" id="4_wu84c"]
 [ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="6_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="7_oa1go"]
 
 [sub_resource type="GDScript" id="GDScript_bqqt6"]
 
@@ -202,3 +203,6 @@ offset_bottom = 227.0
 scale = Vector2(0.84, 0.84)
 text = "a game by LogovoStudios"
 label_settings = SubResource("LabelSettings_rtw2f")
+
+[node name="SceneSwitchAnimation" parent="." instance=ExtResource("7_oa1go")]
+position = Vector2(-20, -36)

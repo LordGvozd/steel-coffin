@@ -337,6 +337,7 @@ stream = SubResource("AudioStreamWAV_dt7fs")
 pitch_scale = 1.07
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.6
 texture = ExtResource("31_wnwbv")
 
 [connection signal="animation_finished" from="UI/ReplicaAnimationPlayer" to="ReplicaSystem" method="_on_replica_animation_player_animation_finished"]
