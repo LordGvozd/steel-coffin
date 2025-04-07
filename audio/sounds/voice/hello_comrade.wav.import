@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b6tyi03a0s1pn"
-path="res://.godot/imported/hello_comrade.wav-e52b2b431b67560290a4c5c8298f01cf.sample"
+path="res://.godot/imported/hello_comrade.wav-4922df87618bf8cf3973f9080ad6805b.sample"
 
 [deps]
 
-source_file="res://hello_comrade.wav"
-dest_files=["res://.godot/imported/hello_comrade.wav-e52b2b431b67560290a4c5c8298f01cf.sample"]
+source_file="res://audio/sounds/voice/hello_comrade.wav"
+dest_files=["res://.godot/imported/hello_comrade.wav-4922df87618bf8cf3973f9080ad6805b.sample"]
 
 [params]
 

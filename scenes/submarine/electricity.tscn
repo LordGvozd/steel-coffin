@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlc07mxrfvwer"]
+[gd_scene load_steps=5 format=3 uid="uid://dlc07mxrfvwer"]
 
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="2_yct0k"]
-[ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="3_ii4w3"]
 [ext_resource type="Texture2D" uid="uid://cdc134hit6bnx" path="res://sprites/navigation room.png" id="3_rkkms"]
-[ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="3_sy3al"]
-[ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_sy3al"]
+[ext_resource type="PackedScene" uid="uid://6s8rrij1yu45" path="res://scenes/player.tscn" id="3_sy3al"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yct0k"]
 size = Vector2(498, 20)
@@ -16,14 +14,10 @@ modulate = Color(1, 0.503993, 0.491943, 1)
 position = Vector2(-1, -18)
 texture = ExtResource("3_rkkms")
 
-[node name="Ladder" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("2_yct0k")]
+[node name="Ladder" parent="." instance=ExtResource("2_yct0k")]
 position = Vector2(-185, -8)
 scale = Vector2(-1, 1)
 scene_path = "uid://d3fjau7priu04"
-scene_switch_animation = NodePath("../SceneSwitchAnimation")
-
-[node name="InteractEffect" parent="Ladder" instance=ExtResource("3_ii4w3")]
-scale = Vector2(2.56, 2.56)
 
 [node name="Player" parent="." instance=ExtResource("3_sy3al")]
 
@@ -32,6 +26,3 @@ scale = Vector2(2.56, 2.56)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(5, 24)
 shape = SubResource("RectangleShape2D_yct0k")
-
-[node name="SceneSwitchAnimation" parent="." instance=ExtResource("4_sy3al")]
-position = Vector2(-276, -133)
