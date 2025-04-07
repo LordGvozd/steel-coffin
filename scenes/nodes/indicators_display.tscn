@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnjdtwac2hg4o"]
+[gd_scene load_steps=7 format=3 uid="uid://dnjdtwac2hg4o"]
 
-[ext_resource type="Script" uid="uid://7mk10mmbqdtc" path="res://scripts/nodes/indicators_display.gd" id="1_n1vsl"]
+[ext_resource type="Script" path="res://scripts/nodes/indicators_display.gd" id="1_n1vsl"]
 [ext_resource type="Script" uid="uid://c786seoau1nn8" path="res://scripts/interact_effect.gd" id="2_dkpce"]
 [ext_resource type="Texture2D" uid="uid://da82bv15rtnq2" path="res://sprites/ladder.png" id="2_lepnc"]
+[ext_resource type="FontFile" uid="uid://o0do1enh0mer" path="res://fonts/novem___.ttf" id="4_r3mf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmjou"]
-size = Vector2(74.1053, 67.7647)
+size = Vector2(60.6316, 67.7647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kceux"]
+font = ExtResource("4_r3mf0")
 
 [node name="IndicatorsDisplay" type="Node2D" node_paths=PackedStringArray("display_label", "control")]
 script = ExtResource("1_n1vsl")
-display_label = NodePath("Control/DisplayLabel")
+display_label = NodePath("Control/ColorRect/DisplayLabel")
 control = NodePath("Control")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,35 +25,36 @@ texture = ExtResource("2_lepnc")
 script = ExtResource("2_dkpce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(3.36842, -7.62939e-06)
+position = Vector2(0, -4.48787e-07)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mmjou")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -25.0
-offset_top = -98.0
-offset_right = -24.0
-offset_bottom = -97.0
+offset_top = -39.0
+offset_right = 34.0
+offset_bottom = -21.0
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
+clip_contents = true
 layout_mode = 0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 79.0
+offset_bottom = 19.0
+color = Color(0, 0, 0, 0.72549)
 
-[node name="DisplayLabel" type="Label" parent="Control"]
+[node name="DisplayLabel" type="Label" parent="Control/ColorRect"]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 48.0
-offset_bottom = 43.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 147.0
+offset_bottom = 54.0
 scale = Vector2(0.410617, 0.338613)
-text = "asd"
-
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+text = "TEST"
+label_settings = SubResource("LabelSettings_kceux")
 
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Sprite2D/Area2D" to="Sprite2D/Area2D" method="_on_area_entered"]

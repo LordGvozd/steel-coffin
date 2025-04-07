@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwaadoewykbog"
-path="res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"
+uid="uid://daq2i64m3t7hp"
+path="res://.godot/imported/hatch (2).png-364e380c2987a8b6518ecbf60ac96624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/submarine/hatch.png"
-dest_files=["res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"]
+source_file="res://sprites/hatch (2).png"
+dest_files=["res://.godot/imported/hatch (2).png-364e380c2987a8b6518ecbf60ac96624.ctex"]
 
 [params]
 

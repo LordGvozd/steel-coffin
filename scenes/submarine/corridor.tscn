@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://f0kaqplyxqln" path="res://scenes/submarine/scene_switch_animation.tscn" id="4_7nbnu"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="4_7rn3r"]
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="5_3m3i6"]
-[ext_resource type="PackedScene" uid="uid://2xbi656akamq" path="res://scenes/submarine/scene_switcher.tscn" id="5_h30qd"]
+[ext_resource type="PackedScene" uid="uid://bb0ckkretjb0y" path="res://scenes/submarine/scene_switcher.tscn" id="5_h30qd"]
 [ext_resource type="PackedScene" uid="uid://qtar2igp0fnm" path="res://scenes/submarine/hatch.tscn" id="9_8r5wv"]
 
 [node name="Corridor" type="Node2D"]
@@ -38,7 +38,7 @@ scale = Vector2(1.4, 1.4)
 
 [node name="Ladder" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("2_1g27h")]
 position = Vector2(93, 119)
-scene_path = "uid://bf14pp7hgv17q"
+scene_path = "uid://ctjt3rdrm6gu3"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation2")
 
 [node name="InteractEffect" parent="Ladder" instance=ExtResource("3_7nbnu")]
@@ -47,10 +47,12 @@ scale = Vector2(1.12, 2.64)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("5_h30qd")]
 position = Vector2(53, 120)
+scene = "uid://c8qdmwpkopnid"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation3")
 
 [node name="SceneSwitcher2" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("5_h30qd")]
 position = Vector2(396, 119)
+scene = "uid://d3fjau7priu04"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation")
 
 [node name="Hatch" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("9_8r5wv")]
@@ -60,6 +62,9 @@ scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation4")
 
 [node name="Player" parent="." instance=ExtResource("5_3m3i6")]
 position = Vector2(90, 119)
+
+[node name="VideoStreamPlayer" parent="Player/UI" index="3"]
+scale = Vector2(0.418425, 0.418425)
 
 [node name="Camera2D" parent="Player" index="11"]
 limit_left = 5

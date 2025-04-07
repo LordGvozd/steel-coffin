@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwaadoewykbog"
-path="res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"
+uid="uid://csdtmynb3qy71"
+path="res://.godot/imported/engine_room.png-ee38bb2893599815737cefba92af0bc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/submarine/hatch.png"
-dest_files=["res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"]
+source_file="res://sprites/engine_room.png"
+dest_files=["res://.godot/imported/engine_room.png-ee38bb2893599815737cefba92af0bc5.ctex"]
 
 [params]
 

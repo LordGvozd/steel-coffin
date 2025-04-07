@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwaadoewykbog"
-path="res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"
+uid="uid://cmvjxndk8d4yd"
+path="res://.godot/imported/oxygen_room.png-bd10c3c63a9951f3a38cf91d1cc20a81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/submarine/hatch.png"
-dest_files=["res://.godot/imported/hatch.png-5c406f488a7bc129773889bcabe82b43.ctex"]
+source_file="res://sprites/oxygen_room.png"
+dest_files=["res://.godot/imported/oxygen_room.png-bd10c3c63a9951f3a38cf91d1cc20a81.ctex"]
 
 [params]
 
