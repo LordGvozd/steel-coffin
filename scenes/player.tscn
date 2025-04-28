@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dgjabqthka8rx"]
+[gd_scene load_steps=45 format=4 uid="uid://dgjabqthka8rx"]
 
 [ext_resource type="Script" uid="uid://chkpb6fdxhpv7" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://ctd63fx6fjn8u" path="res://scenes/nodes/gravity.tscn" id="2_gmlin"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dkehdbn5cwevd" path="res://sprites/player/walk/character_walk11.png" id="21_t4otl"]
 [ext_resource type="Texture2D" uid="uid://ddmbwaemlq58e" path="res://sprites/player/walk/character_walk12.png" id="22_j2b1d"]
 [ext_resource type="PackedScene" uid="uid://cbavo4k480nfc" path="res://scenes/nodes/player_audio.tscn" id="28_dt7fs"]
+[ext_resource type="AudioStream" uid="uid://b8umchl3db14k" path="res://audio/sounds/step.mp3" id="31_487ah"]
 [ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="31_wnwbv"]
 [ext_resource type="PackedScene" uid="uid://d1u80und57c06" path="res://scenes/nodes/indicators_updater.tscn" id="32_gl8cc"]
 
@@ -320,7 +321,8 @@ replica_animation_player = NodePath("../UI/ReplicaAnimationPlayer")
 audio_stream_player = NodePath("../ReplicasAudioStreamPlayer")
 
 [node name="PlayerAudio" parent="." node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("28_dt7fs")]
-audio_stream_player = NodePath("../SoundEffectsAudioStreamPlayer")
+audio_stream_player = NodePath("../StepsAudioStreamPlayer")
+step_sound = ExtResource("31_487ah")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4.5, 4.5)
@@ -331,17 +333,21 @@ script = SubResource("GDScript_ur7pv")
 
 [node name="ReplicasAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_wnwbv")
-volume_db = -15.0
+volume_db = -23.357
 
 [node name="SoundEffectsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_dt7fs")
 pitch_scale = 1.07
+
+[node name="StepsAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -22.286
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.6
 texture = ExtResource("31_wnwbv")
 
 [node name="IndicatorsUpdater" parent="." instance=ExtResource("32_gl8cc")]
+decrease = 3
 
 [connection signal="animation_finished" from="UI/ReplicaAnimationPlayer" to="ReplicaSystem" method="_on_replica_animation_player_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="PlayerAreasManager" method="_on_area_2d_area_entered"]

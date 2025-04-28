@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dlc07mxrfvwer"]
+[gd_scene load_steps=12 format=4 uid="uid://dlc07mxrfvwer"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_yct0k"]
 [ext_resource type="Texture2D" uid="uid://4f3csfvodfto" path="res://sprites/energy_room.png" id="2_rkkms"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="6_crjef"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="6_u7nrb"]
 [ext_resource type="PackedScene" uid="uid://dyp8aciqrpcpc" path="res://scenes/nodes/indicators_increase.tscn" id="10_u7nrb"]
+[ext_resource type="AudioStream" uid="uid://dc61sq78ipgll" path="res://audio/sounds/electricity.mp3" id="11_6sc2s"]
 
 [node name="Electricity" type="Node2D"]
 
@@ -73,5 +74,11 @@ texture = ExtResource("6_crjef")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="TreskPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(235, 89)
+stream = ExtResource("11_6sc2s")
+volume_db = -30.415
+autoplay = true
 
 [editable path="Player"]

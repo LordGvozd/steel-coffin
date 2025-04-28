@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://ctjt3rdrm6gu3"]
+[gd_scene load_steps=6 format=4 uid="uid://bf14pp7hgv17q"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_fufk3"]
 [ext_resource type="PackedScene" uid="uid://qtar2igp0fnm" path="res://scenes/submarine/hatch.tscn" id="2_1eqjo"]

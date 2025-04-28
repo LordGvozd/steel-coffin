@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d3fjau7priu04"]
+[gd_scene load_steps=13 format=4 uid="uid://d3fjau7priu04"]
 
 [ext_resource type="PackedScene" uid="uid://dgjabqthka8rx" path="res://scenes/player.tscn" id="1_irhi1"]
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="3_mrbtk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4t87awycorue" path="res://scenes/ladder.tscn" id="7_n3syt"]
 [ext_resource type="Texture2D" uid="uid://dgp2ukbrba3b1" path="res://sprites/plakat.png" id="8_6e4dj"]
 [ext_resource type="PackedScene" uid="uid://dyp8aciqrpcpc" path="res://scenes/nodes/indicators_increase.tscn" id="8_e6rnw"]
+[ext_resource type="AudioStream" uid="uid://cb8afe6s6ilq" path="res://audio/sounds/oxygen.mp3" id="12_iuuun"]
 
 [node name="Oxygen" type="Node2D"]
 
@@ -77,5 +78,11 @@ scale = Vector2(1.01443, 0.258513)
 color = Color(1, 0.61473, 0.283837, 1)
 energy = 2.47
 texture = ExtResource("7_mrbtk")
+
+[node name="OxygenAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(117, 13)
+stream = ExtResource("12_iuuun")
+volume_db = -43.17
+autoplay = true
 
 [editable path="Player"]

@@ -28,6 +28,6 @@ func _process(delta: float) -> void:
 		match current_index:
 			0:
 				get_tree().change_scene_to_file("res://scenes/epigraf.tscn")
-			2:
+			1:
 				get_tree().quit()
 		

@@ -5,6 +5,7 @@
 [node name="IndicatorsUpdater" type="Node2D"]
 script = ExtResource("1_m1f8k")
 delay = 5
+decrease = 10
 
 [node name="Timer" type="Timer" parent="."]
 
