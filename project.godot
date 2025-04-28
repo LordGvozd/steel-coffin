@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="steel-coffin"
+config/name="K1937"
 run/main_scene="uid://d2ky0h8fix6di"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://7ihaswvl3k7h"
 
 [autoload]
 
@@ -24,6 +24,7 @@ AmbienceAudioPlayer="*res://scenes/submarine/ambience_audio_player.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=false
 
 [global_group]
 

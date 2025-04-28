@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dlc07mxrfvwer"]
+[gd_scene load_steps=12 format=4 uid="uid://dlc07mxrfvwer"]
 
 [ext_resource type="PackedScene" uid="uid://doe0txvp4gcym" path="res://tilemaps/submarine_tilemap.tscn" id="1_yct0k"]
 [ext_resource type="Texture2D" uid="uid://4f3csfvodfto" path="res://sprites/energy_room.png" id="2_rkkms"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b0trdombdj6gm" path="res://scenes/replica_trigger.tscn" id="5_rajhn"]
 [ext_resource type="Texture2D" uid="uid://cjrv1aisq8cww" path="res://sprites/images.jpeg" id="6_crjef"]
 [ext_resource type="PackedScene" uid="uid://wye4p07clpy" path="res://scenes/interact_effect.tscn" id="6_u7nrb"]
+[ext_resource type="PackedScene" uid="uid://dyp8aciqrpcpc" path="res://scenes/nodes/indicators_increase.tscn" id="10_u7nrb"]
+[ext_resource type="AudioStream" uid="uid://dc61sq78ipgll" path="res://audio/sounds/electricity.mp3" id="11_6sc2s"]
 
 [node name="Electricity" type="Node2D"]
 
@@ -22,6 +24,16 @@ position = Vector2(214, 67)
 texture = ExtResource("2_rkkms")
 region_enabled = true
 region_rect = Rect2(1.08302, 1.02795, 174.917, 110.972)
+
+[node name="IndicatorsIncrease" parent="EnergyRoom" instance=ExtResource("10_u7nrb")]
+position = Vector2(-3, 51)
+scale = Vector2(1.32, 1.32)
+increase_to = 10
+indicator = 2
+
+[node name="InteractEffect" parent="EnergyRoom" instance=ExtResource("6_u7nrb")]
+position = Vector2(-2, 39)
+scale = Vector2(1.32, 1.32)
 
 [node name="SceneSwitcher" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("3_ii4w3")]
 position = Vector2(53, 104)
@@ -62,5 +74,11 @@ texture = ExtResource("6_crjef")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="TreskPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(235, 89)
+stream = ExtResource("11_6sc2s")
+volume_db = -30.415
+autoplay = true
 
 [editable path="Player"]

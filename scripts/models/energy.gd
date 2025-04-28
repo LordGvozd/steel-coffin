@@ -1,5 +1,5 @@
 extends Data
 class_name Energy
 
-var value = 70
-var display_name = "Power consumption"
+var value: int = 100
+var display_name = "Energy"

@@ -54,7 +54,7 @@ scale = Vector2(1.4, 1.4)
 
 [node name="Ladder" parent="." node_paths=PackedStringArray("scene_switch_animation") instance=ExtResource("2_1g27h")]
 position = Vector2(93, 119)
-scene_path = "uid://ctjt3rdrm6gu3"
+scene_path = "uid://bf14pp7hgv17q"
 scene_switch_animation = NodePath("../Transitions/SceneSwitchAnimation2")
 
 [node name="InteractEffect" parent="Ladder" instance=ExtResource("3_7nbnu")]
